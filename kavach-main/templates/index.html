@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Stream</title>
+  </head>
+  <body>
+    <h1>Live Stream</h1>
+    <img id="video-feed" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      var socket = io();
+
+      socket.on("frame", function (data) {
+        var img = document.getElementById("video-feed");
+        img.src = "data:image/jpeg;base64," + data;
+      });
+    </script>
+  </body>
+</html>
